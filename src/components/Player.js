@@ -34,7 +34,7 @@ export default class Player extends Component {
         }
         &nbsp;
         <button onClick={this.handleEdit}>{editing ? 'X' : '✎'}</button>
-        {/* <ChooseItem items={inventory} onChoose={onUse}/> */}
+        <ChooseItem items={inventory} onChoose={onUse}/>
       </div>
     ); 
   }
