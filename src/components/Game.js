@@ -9,10 +9,58 @@ export default class Game extends Component {
     action: '',
     player: {
       name: 'Player 1',
-      inventory: ['pikachu']
+      inventory: []
     },
     rooms,
     currentRoom
+  };
+
+  handleMove = roomKey => {
+    this.setState(prevState => ({
+      currentRoom: prevState.rooms[roomKey],
+      action: ''
+    }));
+  };
+
+  handlePickup = item => {
+    if(item.prevent) {
+      this.setState({ action: item.prevent });
+      return;
+    }
+
+    this.setState(({ player, currentRoom }) => {
+      const index = currentRoom.items.indexOf(item);
+      if(index === -1) return;
+      currentRoom.items.splice(index, 1);
+
+      player.inventory.push(item);
+
+      return { player, currentRoom };
+    });
+
+  };
+
+  handleUse = item => {
+    this.setState(({ player, currentRoom }) => {
+      const index = player.inventory.indexOf(item);
+      if(index === -1) return;
+      player.inventory.splice(index, 1);
+
+      let action = '';
+      if(currentRoom.use) action = currentRoom.use(item);
+
+      if(!action) {
+        currentRoom.items.push(item);
+        action = `You dropped ${item.description}`;
+      }
+
+      return {
+        action, 
+        player, 
+        currentRoom
+      };
+
+    });
   };
 
   handleNameChange = name => {
@@ -36,7 +84,7 @@ export default class Game extends Component {
         <Room room={currentRoom}
           action={action} 
           onMove={this.handleMove}
-          onCatch={this.handleCatch}/>
+          onPickup={this.handlePickup}/>
 
       </div>
     );

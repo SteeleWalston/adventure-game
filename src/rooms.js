@@ -4,7 +4,7 @@ const exterior = {
   description: 'It all comes down to this, the final frontier of your pokemon journey. The Elite Five!',
   items: [],
   doors: {
-    top: 'Main Gym foyer'
+    top: 'foyer'
   }
 };
 
@@ -12,10 +12,29 @@ const foyer = {
   title: 'Main Hall Foyer',
   image: 'http://www.evanliaw.com/images/evanLiaw_pokecenter_4.jpg',
   description: 'You enter the main hall, in front you see the front-registration desk where you will select your pokemon and begin battling.',
-  items: [], //pokemon
+  items: [
+    {
+      key: 'squirtle',
+      image: 'https://img.pokemondb.net/sprites/black-white/anim/normal/squirtle.gif'
+    },
+    {
+      key: 'bulbasaur',
+      image: 'https://img.pokemondb.net/sprites/black-white/anim/normal/bulbasaur.gif'
+    },
+    {
+      key: 'hitmonlee',
+      image: 'https://img.pokemondb.net/sprites/black-white/anim/normal/hitmonlee.gif'
+    },
+    {
+      key: 'pickachu',
+      image: 'https://img.pokemondb.net/sprites/black-white/anim/normal/pikachu-f.gif'
+    }
+  ], 
   doors: {
-    left: 'Flying-Gym',
-    right: 'Rock-gym'
+    top: 'finalGym',
+    left: 'flyingGym',
+    right: 'rockGym',
+    bottom: 'exterior'
   }
 };
 
@@ -23,10 +42,15 @@ const rockGym = {
   title: 'Rock Gym',
   image: 'https://vignette.wikia.nocookie.net/sonicpokemon/images/2/2f/Pewter_Gym_battlefield_PO.png/revision/latest?cb=20131214170426',
   description: 'You face your first opponent who specializes in Rock-Type Pokemon, choose your pokemon and begin to battle.',
-  items: [],
+  items: [
+    {
+      key: 'onyx',
+      image: 'https://img.pokemondb.net/sprites/black-white/anim/normal/onix.gif'
+    }
+  ],
   doors: {
-    right: 'Water Gym',
-    left: 'Main Hall Foyer'
+    right: 'waterGym',
+    left: 'foyer'
   }
 };
 
@@ -34,9 +58,14 @@ const waterGym = {
   title: 'Water Gym',
   image: '',
   description: 'You leave the Rock Gym victorious and enter your second match against a an elite Water pokemon trainer. Stay vigilant!',
-  items: [],
+  items: [
+    {
+      key: 'horsea',
+      image: 'https://img.pokemondb.net/sprites/black-white/anim/normal/horsea.gif'
+    }
+  ],
   doors: {
-    left: 'Rock Gym'
+    left: 'rockGym'
   }
 
 };
@@ -45,10 +74,15 @@ const flyingGym = {
   title: 'Flying Gym',
   image: 'https://img00.deviantart.net/fde3/i/2014/350/b/4/background_art___stadium_by_foriegnbacon-d67o1ov.png',
   description: 'Third match in, but now things are getting more difficult. You\'re up against flying-type pokemon.',
-  items: [],
+  items: [
+    {
+      key: 'ho-oh',
+      image: 'https://img.pokemondb.net/sprites/black-white/anim/normal/ho-oh.gif'
+    }
+  ],
   doors: {
-    left: 'Fire Gym',
-    right: 'Main Hall Foyer'
+    left: 'fireGym',
+    right: 'foyer'
   }
 
 };
@@ -57,9 +91,14 @@ const fireGym = {
   title: 'Fire Gym',
   image: ' ',
   description: 'Things are heating up, those vulnurable to fire won\'t last long in this dojo.',
-  items: [],
+  items: [
+    {
+      key: 'charizard',
+      image: 'https://img.pokemondb.net/sprites/black-white/anim/normal/charizard.gif'
+    }
+  ],
   doors: {
-    right: 'Flying Gym'
+    right: 'flyingGym'
   }
 };
 
@@ -67,10 +106,19 @@ const finalGym = {
   title: 'Final Gym',
   image: '',
   description: 'You\'ve arrived at your final destination, the final gym leader, you\'ll be facing dark type Pokemon here!.',
-  items: [],
+  items: [
+    {
+      key: 'moltres',
+      image: 'https://img.pokemondb.net/sprites/black-white/anim/normal/moltres.gif'
+    },
+    {
+      key: 'venasaur',
+      image: 'https://img.pokemondb.net/sprites/black-white/anim/normal/venusaur-f.gif'
+    }
+  ],
   doors: {
-    top:'The End',
-    bottom:'Main Hall Foyer'
+    top:'theEnd',
+    bottom:'foyer'
   }
 };
 
@@ -80,7 +128,7 @@ const theEnd = {
   description: 'You\'ve beaten the Elite Five!',
   items: [],
   doors: {
-    bottom: 'Final Gym'
+    bottom: 'finalGym'
   }
 };
 

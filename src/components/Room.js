@@ -17,6 +17,7 @@ export default class Room extends Component {
     render() {
         
       const { room, action, onMove, onPickup } = this.props;
+      console.log('ROOM', room);
       const { title, image, description, items, doors } = room;
       
       return (
@@ -29,7 +30,17 @@ export default class Room extends Component {
               <h3>Pokemon in room</h3>
               <ChooseItem items={items} onChoose={onPickup}/>
             </div>
-          )}            
+          )}
+          <h4>Doors</h4>
+          <ul className="doors">
+            {Object.entries(doors).map(([direction, roomKey]) => {
+              return <Door
+                key={direction}
+                direction={direction}
+                onOpen={() => onMove(roomKey)}/>;
+            })}
+          </ul> 
+          {action && <p className="action">{action}</p>}           
         </section>
       );
 
