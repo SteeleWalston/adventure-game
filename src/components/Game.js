@@ -29,12 +29,28 @@ export default class Game extends Component {
     }
 
     this.setState(({ player, currentRoom }) => {
-      const index = currentRoom.items.indexOf(item);
-      if(index === -1) return;
-      currentRoom.items.splice(index, 1);
+      let pokemonIsThere = false;
 
-      player.inventory.push(item);
-
+      if(player.inventory.length !== 0) {
+        
+        for(let i = 0; i < player.inventory.length; i++) {
+          
+          
+          if(player.inventory[i].pokemon) {
+            pokemonIsThere = true;
+          } 
+          
+        }
+        
+      }
+      
+  
+      if(pokemonIsThere === false) {
+        const index = currentRoom.items.indexOf(item);
+        if(index === -1) return;
+        currentRoom.items.splice(index, 1);
+        player.inventory.push(item);
+      }
       return { player, currentRoom };
     });
 
