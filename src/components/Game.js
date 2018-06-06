@@ -30,6 +30,7 @@ export default class Game extends Component {
 
     this.setState(({ player, currentRoom }) => {
       let pokemonIsThere = false;
+      // let badgeIsThere = false;
 
       if(player.inventory.length !== 0) {
         
@@ -43,8 +44,26 @@ export default class Game extends Component {
         }
         
       }
+
       
-  
+        
+      // for(let i = 0; i < currentRoom.items.length; i++) {
+          
+          
+      //   if(currentRoom.items[i].description) {
+      //     badgeIsThere = true;
+      //   } 
+          
+      // }
+        
+      
+
+      
+      // if(badgeIsThere === true) {
+      //   currentRoom.items.splice(index, 1);
+      //   player.inventory.push(item);
+      // }
+        
       if(pokemonIsThere === false) {
         const index = currentRoom.items.indexOf(item);
         if(index === -1) return;

@@ -8,6 +8,7 @@ export default function ChooseItem({ items, onChoose }) {
       {items.map(item => (
         <li key={item.key}>
           <a onClick={() => onChoose(item)}><img src={item.image}/></a>
+          <button onClick={() => onChoose(item)}>{item.description}</button>
         </li>
       ))}
     </ul>
