@@ -1,7 +1,7 @@
 const exterior = {
   title: 'Elite Four Gym',
   image: 'https://cdn.bulbagarden.net/upload/thumb/7/7e/Opelucid_Gym_anime.png/1200px-Opelucid_Gym_anime.png',
-  description: 'Its all come to this! the final frontier of your pokemon journey. The Elite Four',
+  description: 'It all comes down to this, the final frontier of your pokemon journey. The Elite Five!',
   items: [],
   doors: {
     top: 'Main Gym foyer'

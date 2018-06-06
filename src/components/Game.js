@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { rooms, start as currentRoom } from '../rooms';
 import Player from './Player';
-// import Room from './Room';
+import Room from './Room';
 
 export default class Game extends Component {
 
@@ -9,7 +9,7 @@ export default class Game extends Component {
     action: '',
     player: {
       name: 'Player 1',
-      inventory: []
+      inventory: ['pikachu']
     },
     rooms,
     currentRoom
@@ -23,7 +23,7 @@ export default class Game extends Component {
   };
 
   render() {
-    const { player, /*currentRoom, action*/ } = this.state;
+    const { player, currentRoom, action } = this.state;
 
     return (
       <div>
@@ -33,10 +33,10 @@ export default class Game extends Component {
           onUse={this.handleUse}
           onNameChange={this.handleNameChange}/>
 
-        {/* <Room room={currentRoom}
+        <Room room={currentRoom}
           action={action} 
           onMove={this.handleMove}
-          onCatch={this.handleCatch}/> */}
+          onCatch={this.handleCatch}/>
 
       </div>
     );
