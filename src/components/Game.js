@@ -63,9 +63,9 @@ export default class Game extends Component {
       //   currentRoom.items.splice(index, 1);
       //   player.inventory.push(item);
       // }
+      const index = currentRoom.items.indexOf(item);
         
       if(pokemonIsThere === false) {
-        const index = currentRoom.items.indexOf(item);
         if(index === -1) return;
         currentRoom.items.splice(index, 1);
         player.inventory.push(item);
@@ -86,7 +86,7 @@ export default class Game extends Component {
 
       if(!action) {
         currentRoom.items.push(item);
-        action = `You dropped ${item.description}`;
+        action = `You dropped ${item.key}`;
       }
 
       return {
