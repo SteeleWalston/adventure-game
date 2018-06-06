@@ -7,7 +7,7 @@ export default function ChooseItem({ items, onChoose }) {
     <ul className={styles.chooseItem}>
       {items.map(item => (
         <li key={item.key}>
-          <button onClick={() => onChoose(item)}>{item.image}</button>
+          <a onClick={() => onChoose(item)}><img src={item.image}/></a>
         </li>
       ))}
     </ul>

@@ -15,19 +15,23 @@ const foyer = {
   items: [
     {
       key: 'squirtle',
-      image: 'https://img.pokemondb.net/sprites/black-white/anim/normal/squirtle.gif'
+      image: 'https://img.pokemondb.net/sprites/black-white/anim/normal/squirtle.gif',
+      pokemon: true
     },
     {
       key: 'bulbasaur',
-      image: 'https://img.pokemondb.net/sprites/black-white/anim/normal/bulbasaur.gif'
+      image: 'https://img.pokemondb.net/sprites/black-white/anim/normal/bulbasaur.gif',
+      pokemon: true
     },
     {
       key: 'hitmonlee',
-      image: 'https://img.pokemondb.net/sprites/black-white/anim/normal/hitmonlee.gif'
+      image: 'https://img.pokemondb.net/sprites/black-white/anim/normal/hitmonlee.gif',
+      pokemon: true
     },
     {
       key: 'pickachu',
-      image: 'https://img.pokemondb.net/sprites/black-white/anim/normal/pikachu-f.gif'
+      image: 'https://img.pokemondb.net/sprites/black-white/anim/normal/pikachu-f.gif',
+      pokemon: true
     }
   ], 
   doors: {
@@ -45,7 +49,7 @@ const rockGym = {
   items: [
     {
       key: 'onyx',
-      image: 'https://img.pokemondb.net/sprites/black-white/anim/normal/onix.gif'
+      image: 'https://img.pokemondb.net/sprites/black-white/anim/normal/onix.gif',
     }
   ],
   doors: {
@@ -61,7 +65,7 @@ const waterGym = {
   items: [
     {
       key: 'horsea',
-      image: 'https://img.pokemondb.net/sprites/black-white/anim/normal/horsea.gif'
+      image: 'https://img.pokemondb.net/sprites/black-white/anim/normal/horsea.gif',
     }
   ],
   doors: {

@@ -17,7 +17,6 @@ export default class Room extends Component {
     render() {
         
       const { room, action, onMove, onPickup } = this.props;
-      console.log('ROOM', room);
       const { title, image, description, items, doors } = room;
       
       return (
