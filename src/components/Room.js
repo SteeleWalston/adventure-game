@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Door from './Door';
 import ChooseItem from './ChooseItem';
-import styles from './Room.css';
 
 export default class Room extends Component {
 
@@ -21,7 +20,7 @@ export default class Room extends Component {
       
       return (
 
-        <section className={styles.room} style = {{ backgroundImage: `url(${image})` }}>
+        <section className=".room" style={{ backgroundImage: `url(${image})` }}>
           <h2>{title}</h2>
           <p>{description}</p>
           {!!items.length && (
