@@ -29,7 +29,7 @@ const foyer = {
       pokemon: true
     },
     {
-      key: 'pickachu',
+      key: 'pikachu',
       image: 'https://img.pokemondb.net/sprites/black-white/anim/normal/pikachu-f.gif',
       pokemon: true
     }
@@ -40,6 +40,7 @@ const foyer = {
     right: 'rockGym',
     bottom: 'exterior'
   }
+
 };
 
 const rockGym = {
@@ -50,6 +51,7 @@ const rockGym = {
     {
       key: 'onyx',
       image: 'https://img.pokemondb.net/sprites/black-white/anim/normal/onix.gif',
+      pokemon: true
     },
     {
       key: 'rockBadge',
@@ -58,7 +60,6 @@ const rockGym = {
     }
   ],
   doors: {
-    // right: 'waterGym',
     left: 'foyer'
   },
   use(item) {
@@ -83,6 +84,7 @@ const waterGym = {
     {
       key: 'horsea',
       image: 'https://img.pokemondb.net/sprites/black-white/anim/normal/horsea.gif',
+      pokemon: true
     },
     {
       key: 'waterBadge',
@@ -92,6 +94,17 @@ const waterGym = {
   ],
   doors: {
     left: 'rockGym'
+  },
+  use(item) {
+    if(item.key === 'pikachu') {
+      const badge = this.items.find(item => item.key === 'waterBadge');
+      if(!badge) return;
+      
+      delete badge.prevent;
+      
+      return `You beat the water gym!.
+       Click the badge to add to your inventory.`;
+    }
   }
 
 };
@@ -103,7 +116,8 @@ const flyingGym = {
   items: [
     {
       key: 'ho-oh',
-      image: 'https://img.pokemondb.net/sprites/black-white/anim/normal/ho-oh.gif'
+      image: 'https://img.pokemondb.net/sprites/black-white/anim/normal/ho-oh.gif',
+      pokemon: true
     },
     {
       key: 'flyingBadge',
@@ -112,8 +126,19 @@ const flyingGym = {
     }
   ],
   doors: {
-    left: 'fireGym',
     right: 'foyer'
+  },
+  use(item) {
+    if(item.key === 'hitmonlee') {
+      const badge = this.items.find(item => item.key === 'flyingBadge');
+      if(!badge) return;
+      
+      delete badge.prevent;
+      this.doors.left = 'fireGym';
+      
+      return `You beat the flying gym!.
+       Click the badge to add to your inventory.`;
+    }
   }
 
 };
@@ -125,7 +150,8 @@ const fireGym = {
   items: [
     {
       key: 'charizard',
-      image: 'https://img.pokemondb.net/sprites/black-white/anim/normal/charizard.gif'
+      image: 'https://img.pokemondb.net/sprites/black-white/anim/normal/charizard.gif',
+      pokemon: true
     },
     {
       key: 'fireBadge',
@@ -135,6 +161,17 @@ const fireGym = {
   ],
   doors: {
     right: 'flyingGym'
+  },
+  use(item) {
+    if(item.key === 'squirtle') {
+      const badge = this.items.find(item => item.key === 'fireBadge');
+      if(!badge) return;
+      
+      delete badge.prevent;
+      
+      return `You beat the fire gym!.
+       Click the badge to add to your inventory.`;
+    }
   }
 };
 
@@ -144,17 +181,21 @@ const finalGym = {
   description: 'You\'ve arrived at your final destination, the final gym leader!.',
   items: [
     {
-      key: 'moltres',
-      image: 'https://img.pokemondb.net/sprites/black-white/anim/normal/moltres.gif'
-    },
-    {
       key: 'venasaur',
       image: 'https://img.pokemondb.net/sprites/black-white/anim/normal/venusaur-f.gif'
     }
   ],
   doors: {
-    top:'theEnd',
     bottom:'foyer'
+  },
+  use(item) {
+    if(item.key === 'charizard') {
+      this.doors.top = 'theEnd';
+      
+      return `You beat the final gym!.
+       Move Onwards!.`;
+    }
+    return 'You\'re pokemon is weak against this type';
   }
 };
 
@@ -162,7 +203,12 @@ const theEnd = {
   title: 'The End',
   image: '',
   description: 'You\'ve beaten the Elite Five!',
-  items: [],
+  items: [
+    {
+      key: 'mewtwo',
+      image: 'https://img.pokemondb.net/sprites/black-white/anim/normal/mewtwo.gif'
+    }
+  ],
   doors: {
     bottom: 'finalGym'
   }
