@@ -39,8 +39,7 @@ const foyer = {
     left: 'flyingGym',
     right: 'rockGym',
     bottom: 'exterior'
-  }
-
+  },
 };
 
 const rockGym = {
@@ -51,18 +50,23 @@ const rockGym = {
     {
       key: 'onyx',
       image: 'https://img.pokemondb.net/sprites/black-white/anim/normal/onix.gif',
-      pokemon: true
+      pokemon: true,
+      prevent: 'You can\'t pick up the gyms pokemon!'
     },
     {
       key: 'rockBadge',
       description: 'Rock Badge',
-      prevent: 'Your pokemon type is weak against this gym\'s pokemon!'
+      prevent: 'You have to use your pokemon!'
     }
   ],
   doors: {
     left: 'foyer'
   },
   use(item) {
+    if(item.key !== 'bulbasaur') {
+      const badge = this.items.find(item => item.key === 'rockBadge');
+      badge.prevent = 'You\'re pokemon is weak against this type!';
+    }
     if(item.key === 'bulbasaur') {
       const badge = this.items.find(item => item.key === 'rockBadge');
       if(!badge) return;
@@ -84,18 +88,23 @@ const waterGym = {
     {
       key: 'horsea',
       image: 'https://img.pokemondb.net/sprites/black-white/anim/normal/horsea.gif',
-      pokemon: true
+      pokemon: true,
+      prevent: 'You can\'t pick up the gyms pokemon!'
     },
     {
       key: 'waterBadge',
       description: 'Water Badge',
-      prevent: 'Your pokemon type is weak against this gym\'s pokemon!'
+      prevent: 'You have to use your pokemon!'
     }
   ],
   doors: {
     left: 'rockGym'
   },
   use(item) {
+    if(item.key !== 'pikachu') {
+      const badge = this.items.find(item => item.key === 'waterBadge');
+      badge.prevent = 'You\'re pokemon is weak against this type!';
+    }
     if(item.key === 'pikachu') {
       const badge = this.items.find(item => item.key === 'waterBadge');
       if(!badge) return;
@@ -117,18 +126,23 @@ const flyingGym = {
     {
       key: 'ho-oh',
       image: 'https://img.pokemondb.net/sprites/black-white/anim/normal/ho-oh.gif',
-      pokemon: true
+      pokemon: true,
+      prevent: 'You can\'t pick up the gyms pokemon!'
     },
     {
       key: 'flyingBadge',
       description: 'Flying Badge',
-      prevent: 'Your pokemon type is weak against this gym\'s pokemon!'
+      prevent: 'You have to use your pokemon!'
     }
   ],
   doors: {
     right: 'foyer'
   },
   use(item) {
+    if(item.key !== 'hitmonlee') {
+      const badge = this.items.find(item => item.key === 'flyingBadge');
+      badge.prevent = 'You\'re pokemon is weak against this type!';
+    }
     if(item.key === 'hitmonlee') {
       const badge = this.items.find(item => item.key === 'flyingBadge');
       if(!badge) return;
@@ -156,13 +170,17 @@ const fireGym = {
     {
       key: 'fireBadge',
       description: 'Fire Badge',
-      prevent: 'Your pokemon type is weak against this gym\'s pokemon!'
+      prevent: 'You have to use your pokemon!'
     }
   ],
   doors: {
     right: 'flyingGym'
   },
   use(item) {
+    if(item.key !== 'squirtle') {
+      const badge = this.items.find(item => item.key === 'fireBadge');
+      badge.prevent = 'You\'re pokemon is weak against this type!';
+    }
     if(item.key === 'squirtle') {
       const badge = this.items.find(item => item.key === 'fireBadge');
       if(!badge) return;
@@ -182,7 +200,8 @@ const finalGym = {
   items: [
     {
       key: 'venasaur',
-      image: 'https://img.pokemondb.net/sprites/black-white/anim/normal/venusaur-f.gif'
+      image: 'https://img.pokemondb.net/sprites/black-white/anim/normal/venusaur-f.gif',
+      prevent: 'You can\'t pick up the final gyms pokemon!'
     }
   ],
   doors: {

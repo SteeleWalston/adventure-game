@@ -95,6 +95,7 @@ export default class Game extends Component {
         
         <Player player={player} 
           onUse={this.handleUse}
+          onBadge={this.handleBadge}
           onNameChange={this.handleNameChange}/>
 
         <Room room={currentRoom}
